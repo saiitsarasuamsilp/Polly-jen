@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polly Jen — Wood-Fired Kitchen & Coffee</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #1b1815;
+    --ink-soft: #26221d;
+    --parchment: #f3ecdf;
+    --parchment-dim: #e9e0cf;
+    --brass: #a67c3d;
+    --brass-bright: #c99a55;
+    --ember: #7a3b2e;
+    --stone: #8a8378;
+    --line-on-dark: rgba(243,236,223,0.18);
+    --line-on-light: rgba(27,24,21,0.14);
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
+  }
+
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    font-weight:400;
+    line-height:1.6;
+  }
+
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+
+  a{ color:inherit; text-decoration:none; }
+  img{ max-width:100%; display:block; }
+
+  .wrap{
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:50;
+    padding:22px 0;
+    transition:background 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
+  }
+  header.scrolled{
+    background:var(--ink);
+    padding:14px 0;
+    box-shadow:0 1px 0 var(--line-on-dark);
+  }
+  header .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .brand{
+    font-family:'Fraunces', serif;
+    font-size:1.15rem;
+    font-weight:500;
+    color:var(--parchment);
+    letter-spacing:0.01em;
+  }
+  .brand em{ font-style:italic; color:var(--brass-bright); }
+  nav.links{ display:flex; gap:36px; }
+  nav.links a{
+    color:var(--parchment);
+    font-size:0.92rem;
+    opacity:0.85;
+    position:relative;
+    padding-bottom:4px;
+  }
+  nav.links a::after{
+    content:"";
+    position:absolute; left:0; right:0; bottom:0;
+    height:1px; background:var(--brass-bright);
+    transform:scaleX(0); transform-origin:left;
+    transition:transform 0.3s ease;
+  }
+  nav.links a:hover{ opacity:1; }
+  nav.links a:hover::after{ transform:scaleX(1); }
+  .nav-toggle{ display:none; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100vh;
+    background:
+      radial-gradient(ellipse at 20% 10%, rgba(166,124,61,0.16), transparent 55%),
+      linear-gradient(180deg, var(--ink) 0%, var(--ink-soft) 60%, var(--ink) 100%);
+    display:flex;
+    align-items:flex-end;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image: repeating-linear-gradient(
+      100deg,
+      transparent 0px,
+      transparent 68px,
+      rgba(243,236,223,0.035) 69px,
+      transparent 70px
+    );
+    pointer-events:none;
+  }
+  .hero-inner{
+    position:relative;
+    padding-bottom:96px;
+    padding-top:180px;
+    width:100%;
+  }
+  .hero-kicker{
+    color:var(--brass-bright);
+    font-size:0.85rem;
+    letter-spacing:0.04em;
+    margin-bottom:18px;
+    opacity:0;
+    animation: rise 0.9s ease 0.15s forwards;
+  }
+  .hero h1{
+    color:var(--parchment);
+    font-size:clamp(2.8rem, 7vw, 5.6rem);
+    line-height:0.98;
+    max-width:16ch;
+    opacity:0;
+    animation: rise 0.9s ease 0.3s forwards;
+  }
+  .hero h1 .italic{ font-style:italic; font-weight:400; color:var(--brass-bright); }
+  .hero-sub{
+    margin-top:26px;
+    max-width:46ch;
+    color:var(--parchment-dim);
+    font-size:1.05rem;
+    opacity:0;
+    animation: rise 0.9s ease 0.45s forwards;
+  }
+  .hero-meta{
+    margin-top:44px;
+    display:flex;
+    gap:40px;
+    flex-wrap:wrap;
+    border-top:1px solid var(--line-on-dark);
+    padding-top:24px;
+    opacity:0;
+    animation: rise 0.9s ease 0.6s forwards;
+  }
+  .hero-meta div{ color:var(--parchment-dim); font-size:0.88rem; }
+  .hero-meta strong{ display:block; color:var(--parchment); font-family:'Fraunces', serif; font-weight:500; font-size:1rem; margin-bottom:4px; }
+
+  @keyframes rise{
+    from{ opacity:0; transform:translateY(18px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  /* ---------- BUTTONS ---------- */
+  .btn{
+    display:inline-block;
+    padding:14px 28px;
+    font-size:0.9rem;
+    border:1px solid currentColor;
+    transition:background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  }
+  .btn-primary{
+    background:var(--brass);
+    color:var(--ink);
+    border-color:var(--brass);
+  }
+  .btn-primary:hover{ background:var(--brass-bright); border-color:var(--brass-bright); }
+  .btn-ghost-dark{ color:var(--parchment); border-color:var(--line-on-dark); }
+  .btn-ghost-dark:hover{ border-color:var(--brass-bright); color:var(--brass-bright); }
+  .btn-ghost-light{ color:var(--ink); border-color:var(--line-on-light); }
+  .btn-ghost-light:hover{ border-color:var(--ember); color:var(--ember); }
+  .btn-row{ display:flex; gap:16px; margin-top:34px; flex-wrap:wrap; opacity:0; animation: rise 0.9s ease 0.75s forwards; }
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section{ padding:120px 0; }
+  .eyebrow{
+    color:var(--ember);
+    font-size:0.82rem;
+    margin-bottom:14px;
+  }
+  .section-head{ max-width:640px; margin-bottom:64px; }
+  .section-head h2{ font-size:clamp(2rem, 4vw, 2.8rem); }
+
+  /* ---------- STORY ---------- */
+  .story{ background:var(--parchment); }
+  .story .grid{
+    display:grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap:72px;
+    align-items:center;
+  }
+  .story-art{
+    aspect-ratio: 4 / 5;
+    background:
+      linear-gradient(160deg, var(--ember) 0%, #4a231c 100%);
+    position:relative;
+    overflow:hidden;
+  }
+  .story-art::after{
+    content:"";
+    position:absolute; inset:0;
+    background-image: repeating-radial-gradient(circle at 30% 20%, rgba(243,236,223,0.08) 0, rgba(243,236,223,0.08) 1px, transparent 1px, transparent 40px);
+  }
+  .story-art .mark{
+    position:absolute;
+    bottom:28px; left:28px;
+    color:var(--parchment);
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.4rem;
+    max-width:70%;
+  }
+  .story-copy p{ color:#3a352e; font-size:1.05rem; max-width:52ch; }
+  .story-copy p + p{ margin-top:18px; }
+  .pull{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.5rem;
+    color:var(--ember);
+    margin:28px 0;
+    max-width:24ch;
+    line-height:1.35;
+  }
+  .story-facts{
+    margin-top:40px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+    border-top:1px solid var(--line-on-light);
+    padding-top:28px;
+  }
+  .story-facts strong{ display:block; font-family:'Fraunces', serif; font-size:1.6rem; color:var(--ink); }
+  .story-facts span{ font-size:0.82rem; color:var(--stone); }
+
+  /* ---------- MENU ---------- */
+  .menu{ background:var(--ink); color:var(--parchment); }
+  .menu .section-head h2{ color:var(--parchment); }
+  .menu .eyebrow{ color:var(--brass-bright); }
+  .menu-cats{
+    display:flex;
+    gap:28px;
+    margin-bottom:56px;
+    flex-wrap:wrap;
+    border-bottom:1px solid var(--line-on-dark);
+  }
+  .menu-cats button{
+    background:none; border:none; cursor:pointer;
+    font-family:'Work Sans', sans-serif;
+    color:var(--parchment-dim);
+    font-size:0.95rem;
+    padding:0 0 16px 0;
+    border-bottom:2px solid transparent;
+    transition:color 0.2s ease, border-color 0.2s ease;
+  }
+  .menu-cats button.active,
+  .menu-cats button:hover{ color:var(--parchment); border-bottom-color:var(--brass-bright); }
+
+  .menu-panel{ display:none; }
+  .menu-panel.active{ display:block; animation: rise 0.5s ease; }
+  .menu-item{
+    display:flex;
+    justify-content:space-between;
+    gap:24px;
+    padding:22px 0;
+    border-bottom:1px solid var(--line-on-dark);
+  }
+  .menu-item:last-child{ border-bottom:none; }
+  .menu-item-name{ font-family:'Fraunces', serif; font-size:1.15rem; margin-bottom:6px; }
+  .menu-item-desc{ color:var(--stone); font-size:0.92rem; max-width:46ch; }
+  .menu-item-price{ font-family:'Fraunces', serif; font-size:1.1rem; color:var(--brass-bright); white-space:nowrap; }
+
+  .menu-cta{
+    margin-top:56px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:24px;
+    padding-top:40px;
+    border-top:1px solid var(--line-on-dark);
+  }
+  .menu-cta p{ color:var(--parchment-dim); max-width:38ch; margin:0; }
+
+  /* ---------- RESERVE ---------- */
+  .reserve{ background:var(--parchment-dim); }
+  .reserve .grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:72px;
+  }
+  .reserve-copy p{ color:#3a352e; max-width:42ch; }
+  .reserve-note{
+    margin-top:32px;
+    padding:20px 22px;
+    background:var(--parchment);
+    border-left:2px solid var(--brass);
+    font-size:0.92rem;
+    color:#4a453c;
+    max-width:42ch;
+  }
+  form{ display:flex; flex-direction:column; gap:18px; }
+  .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  label{ font-size:0.82rem; color:var(--stone); display:block; margin-bottom:7px; }
+  input, select, textarea{
+    width:100%;
+    background:transparent;
+    border:none;
+    border-bottom:1px solid var(--line-on-light);
+    padding:10px 2px;
+    font-family:'Work Sans', sans-serif;
+    font-size:0.98rem;
+    color:var(--ink);
+    transition:border-color 0.2s ease;
+  }
+  input:focus, select:focus, textarea:focus{
+    outline:none;
+    border-bottom-color:var(--ember);
+  }
+  textarea{ resize:vertical; min-height:70px; }
+  .form-submit{
+    margin-top:8px;
+    background:var(--ember);
+    color:var(--parchment);
+    border:1px solid var(--ember);
+    padding:15px 28px;
+    font-size:0.92rem;
+    cursor:pointer;
+    align-self:flex-start;
+    transition:background 0.25s ease;
+    font-family:'Work Sans', sans-serif;
+  }
+  .form-submit:hover{ background:#642f24; }
+  .form-note{ font-size:0.8rem; color:var(--stone); margin-top:2px; }
+
+  /* ---------- VISIT ---------- */
+  .visit{ background:var(--ink); color:var(--parchment); }
+  .visit .grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:72px;
+  }
+  .hours-table{ width:100%; border-collapse:collapse; }
+  .hours-table td{ padding:12px 0; border-bottom:1px solid var(--line-on-dark); font-size:0.98rem; }
+  .hours-table td:last-child{ text-align:right; color:var(--parchment-dim); }
+  .visit-block{ margin-bottom:36px; }
+  .visit-block h3{ font-size:1.1rem; margin-bottom:14px; color:var(--brass-bright); }
+  .visit-block p{ color:var(--parchment-dim); margin:0 0 4px 0; }
+  .map{
+    aspect-ratio:1/1;
+    background:
+      linear-gradient(135deg, #2c2620 25%, transparent 25%) -20px 0,
+      linear-gradient(225deg, #2c2620 25%, transparent 25%) -20px 0,
+      linear-gradient(315deg, #2c2620 25%, transparent 25%),
+      linear-gradient(45deg, #2c2620 25%, transparent 25%);
+    background-size:40px 40px;
+    background-color:var(--ink-soft);
+    position:relative;
+    border:1px solid var(--line-on-dark);
+  }
+  .map::after{
+    content:"◆";
+    position:absolute; top:50%; left:52%;
+    transform:translate(-50%,-50%);
+    color:var(--ember);
+    font-size:1.6rem;
+    text-shadow:0 0 24px rgba(122,59,46,0.9);
+  }
+  .map-label{
+    position:absolute; bottom:16px; left:16px;
+    font-size:0.78rem; color:var(--stone);
+    letter-spacing:0.03em;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--ink);
+    border-top:1px solid var(--line-on-dark);
+    padding:36px 0;
+  }
+  footer .wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:16px;
+  }
+  footer .brand{ font-size:1rem; }
+  .foot-links{ display:flex; gap:26px; }
+  .foot-links a{ color:var(--parchment-dim); font-size:0.85rem; }
+  .foot-links a:hover{ color:var(--brass-bright); }
+  .foot-fine{ color:var(--stone); font-size:0.8rem; }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 860px){
+    nav.links{ display:none; }
+    .story .grid, .reserve .grid, .visit .grid{ grid-template-columns:1fr; }
+    .story-art{ aspect-ratio:16/9; }
+    .form-row{ grid-template-columns:1fr; }
+    section{ padding:80px 0; }
+    .story-facts{ grid-template-columns:1fr 1fr; }
+    footer .wrap{ flex-direction:column; align-items:flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="wrap">
+    <a href="#top" class="brand">Polly Jen</a>
+    <nav class="links">
+      <a href="#story">Story</a>
+      <a href="#menu">Menu</a>
+      <a href="#reserve">Reserve</a>
+      <a href="#visit">Visit</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap hero-inner">
+    <div class="hero-kicker">Wood-fired kitchen &amp; coffee roastery — Est. 2016</div>
+    <h1>Slow food,<br><span class="italic">cooked over fire.</span></h1>
+    <p class="hero-sub">A small kitchen built around a single wood oven, a short seasonal menu, and coffee we roast ourselves three doors down. Open for breakfast through supper.</p>
+    <div class="btn-row">
+      <a href="#reserve" class="btn btn-primary">Reserve a table</a>
+      <a href="#menu" class="btn btn-ghost-dark">View the menu</a>
+    </div>
+    <div class="hero-meta">
+      <div><strong>Open daily</strong>7:30am – 10pm</div>
+      <div><strong>Kitchen</strong>Wood-fired, seasonal, six tables of counter seating</div>
+      <div><strong>Location</strong>Rawai, Phuket</div>
+    </div>
+  </div>
+</section>
+
+<section class="story" id="story">
+  <div class="wrap grid">
+    <div class="story-art">
+      <div class="mark">One oven. One fire, kept lit since 2016.</div>
+    </div>
+    <div class="story-copy">
+      <div class="eyebrow">Our story</div>
+      <h2>Built around a single fire</h2>
+      <p class="pull">"We didn't want a menu you could get anywhere. We wanted a fire you could feel."</p>
+      <p>Polly Jen started as a wood oven in a rented lot and a promise to two dozen regulars: cook honestly, change with the seasons, and never rush the fire. Eight years later the oven is the same one, the regulars have multiplied, and the promise hasn't moved.</p>
+      <p>Everything on the menu passes through that fire — bread, vegetables, the coffee beans we roast ourselves each Tuesday. What we can't grow nearby, we don't serve.</p>
+      <div class="story-facts">
+        <div><strong>2016</strong><span>Oven first lit</span></div>
+        <div><strong>1</strong><span>Wood-fired hearth</span></div>
+        <div><strong>12mi</strong><span>Average ingredient distance</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">On the fire this season</div>
+      <h2>A short menu, changed often</h2>
+    </div>
+
+    <div class="menu-cats">
+      <button class="active" data-tab="mornings">Mornings</button>
+      <button data-tab="hearth">From the Hearth</button>
+      <button data-tab="sweets">Sweets</button>
+      <button data-tab="drink">To Drink</button>
+    </div>
+
+    <div class="menu-panel active" id="mornings">
+      <div class="menu-item">
+        <div><div class="menu-item-name">Charred sourdough, cultured butter</div><div class="menu-item-desc">Baked twice daily in the wood oven, served warm with brown-butter honey.</div></div>
+        <div class="menu-item-price">$7</div>
+      </div>
+      <div class="menu-item">
+        <div><div class="menu-item-name">Ember eggs, hearth greens</div><div class="menu-item-desc">Slow-cooked eggs over ash, seasonal greens, chili oil.</div></div>
+        <div class="menu-item-price">$13</div>
+      </div>
+      <div class="menu-item">
+        <div><div class="menu-item-name">Ricotta &amp; roasted fig toast</div><div class="menu-item-desc">Whipped ricotta, figs roasted at the oven's edge, thyme honey.</div></div>
+        <div class="menu-item-price">$11</div>
+      </div>
+    </div>
+
+    <div class="menu-panel" id="hearth">
+      <div class="menu-item">
+        <div><div class="menu-item-name">Whole hearth-roasted trout</div><div class="menu-item-desc">Herb butter, charred lemon, roasted fingerlings.</div></div>
+        <div class="menu-item-price">$28</div>
+      </div>
+      <div class="menu-item">
+        <div><div class="menu-item-name">Fire-blistered squash</div><div class="menu-item-desc">Whipped tahini, pomegranate, toasted seeds.</div></div>
+        <div class="menu-item-price">$19</div>
+      </div>
+      <div class="menu-item">
+        <div><div class="menu-item-name">Slow-embered short rib</div><div class="menu-item-desc">Twelve hours over low coals, root vegetable mash, jus.</div></div>
+        <div class="menu-item-price">$34</div>
+      </div>
+    </div>
+
+    <div class="menu-panel" id="sweets">
+      <div class="menu-item">
+        <div><div class="menu-item-name">Smoked chocolate torte</div><div class="menu-item-desc">Dark chocolate finished with a whisper of hearth smoke.</div></div>
+        <div class="menu-item-price">$10</div>
+      </div>
+      <div class="menu-item">
+        <div><div class="menu-item-name">Roasted stone fruit, mascarpone</div><div class="menu-item-desc">Whatever's ripest, caramelized at the oven mouth.</div></div>
+        <div class="menu-item-price">$9</div>
+      </div>
+    </div>
+
+    <div class="menu-panel" id="drink">
+      <div class="menu-item">
+        <div><div class="menu-item-name">House-roasted filter coffee</div><div class="menu-item-desc">Roasted every Tuesday, three doors down.</div></div>
+        <div class="menu-item-price">$5</div>
+      </div>
+      <div class="menu-item">
+        <div><div class="menu-item-name">Cardamom cortado</div><div class="menu-item-desc">Espresso, steamed milk, house cardamom syrup.</div></div>
+        <div class="menu-item-price">$6</div>
+      </div>
+      <div class="menu-item">
+        <div><div class="menu-item-name">Smoked old fashioned</div><div class="menu-item-desc">Bourbon, hearth-smoked sugar, orange oil.</div></div>
+        <div class="menu-item-price">$15</div>
+      </div>
+    </div>
+
+    <div class="menu-cta">
+      <p>Prefer to eat at home? Order for pickup or delivery through our online ordering partner.</p>
+      <a href="#" class="btn btn-primary">Order online</a>
+    </div>
+  </div>
+</section>
+
+<section class="reserve" id="reserve">
+  <div class="wrap grid">
+    <div class="reserve-copy">
+      <div class="eyebrow">Reservations</div>
+      <h2>Save a seat by the fire</h2>
+      <p>We hold six tables and a short counter each night. Parties larger than eight, get in touch directly and we'll set something up.</p>
+      <div class="reserve-note">Walk-ins are always welcome at the counter — reservations are for the dining room only.</div>
+    </div>
+    <form id="reserveForm">
+      <div class="form-row">
+        <div>
+          <label for="name">Name</label>
+          <input type="text" id="name" required>
+        </div>
+        <div>
+          <label for="party">Party size</label>
+          <select id="party">
+            <option>1</option><option>2</option><option>3</option><option>4</option>
+            <option>5</option><option>6</option><option>7</option><option>8+</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div>
+          <label for="date">Date</label>
+          <input type="date" id="date" required>
+        </div>
+        <div>
+          <label for="time">Time</label>
+          <input type="time" id="time" required>
+        </div>
+      </div>
+      <div>
+        <label for="notes">Notes (optional)</label>
+        <textarea id="notes" placeholder="Allergies, occasions, seating preference…"></textarea>
+      </div>
+      <button type="submit" class="form-submit">Request a table</button>
+      <div class="form-note">We'll confirm by email within a few hours.</div>
+    </form>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="wrap grid">
+    <div>
+      <div class="visit-block">
+        <div class="eyebrow" style="color:var(--brass-bright)">Visit</div>
+        <h2 style="color:var(--parchment); margin-bottom:24px;">Find us in Rawai</h2>
+        <p style="color:var(--parchment-dim); max-width:40ch;">Tucked behind the old millworks, with a small patio for warmer evenings.</p>
+      </div>
+      <div class="visit-block">
+        <h3>Hours</h3>
+        <table class="hours-table">
+          <tr><td>Monday – Friday</td><td>7:30am – 10:00pm</td></tr>
+          <tr><td>Saturday</td><td>8:00am – 11:00pm</td></tr>
+          <tr><td>Sunday</td><td>8:00am – 4:00pm</td></tr>
+        </table>
+      </div>
+      <div class="visit-block">
+        <h3>Contact</h3>
+        <p>Rawai, Phuket</p>
+        <p>(555) 019-2244</p>
+        <p>hello@pollyjen.co</p>
+      </div>
+    </div>
+    <div class="map">
+      <div class="map-label">Rawai, Phuket</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="#top" class="brand">Polly Jen</a>
+    <div class="foot-links">
+      <a href="#menu">Menu</a>
+      <a href="#reserve">Reserve</a>
+      <a href="#">Instagram</a>
+    </div>
+    <div class="foot-fine">© 2026 Polly Jen</div>
+  </div>
+</footer>
+
+<script>
+  // Header background on scroll
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Menu tabs
+  const tabButtons = document.querySelectorAll('.menu-cats button');
+  const panels = document.querySelectorAll('.menu-panel');
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabButtons.forEach(b => b.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Reservation form (no backend — confirms locally)
+  const form = document.getElementById('reserveForm');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('.form-submit');
+    const original = btn.textContent;
+    btn.textContent = 'Request sent';
+    btn.disabled = true;
+    setTimeout(() => { btn.textContent = original; btn.disabled = false; form.reset(); }, 2200);
+  });
+</script>
+
+</body>
+</html>
