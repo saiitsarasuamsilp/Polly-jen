@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Menu — Polly Jen Rawai Brewing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Anton&family=Oswald:wght@400;500;600&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #17120d;
+      --cream: #f2e8d3;
+      --cream-dim: #e6d7b8;
+      --amber: #d98f30;
+      --amber-bright: #f0a83f;
+      --rust: #a8501f;
+      --brown: #3c2a1c;
+      --line-light: rgba(23,18,13,0.14);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--ink);
+      color: var(--ink);
+      font-family: 'Work Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      padding: 20px;
+    }
+
+    /* ปุ่มย้อนกลับหน้าหลัก */
+    .back-btn {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      color: var(--cream);
+      font-family: 'Oswald', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      border: 2px solid var(--amber);
+      padding: 10px 20px;
+      font-size: 0.85rem;
+      transition: all 0.25s ease;
+      z-index: 100;
+    }
+
+    .back-btn:hover {
+      background: var(--amber);
+      color: var(--ink);
+    }
+
+    /* สมุดเมนู (Book Container) */
+    .menu-book {
+      position: relative;
+      width: 420px;
+      height: 600px;
+      perspective: 1500px;
+      margin-top: 40px;
+    }
+
+    /* แผ่นหน้ากระดาษ */
+    .page {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      transform-origin: left;
+      transform-style: preserve-3d;
+      transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+      cursor: pointer;
+      border-radius: 0 12px 12px 0;
+      box-shadow: 0 12px 25px rgba(0,0,0,0.5);
+    }
+
+    /* หน้าด้านหน้า และ หน้าด้านหลัง */
+    .front, .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      backface-visibility: hidden;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 0 12px 12px 0;
+      background-color: var(--cream);
+      border: 1px solid var(--cream-dim);
+      overflow-y: auto;
+    }
+
+    .back {
+      transform: rotateY(180deg);
+      border-radius: 12px 0 0 12px;
+      background-color: var(--cream-dim);
+    }
+
+    .page.flipped {
+      transform: rotateY(-180deg);
+    }
+
+    /* ปกหน้าและปกหลัง */
+    .cover-front {
+      background-color: var(--brown);
+      color: var(--cream);
+      border: 2px solid var(--amber);
+      text-align: center;
+      justify-content: center;
+    }
+
+    .cover-back {
+      background-color: var(--brown);
+      color: var(--cream);
+      border: 2px solid var(--amber);
+      text-align: center;
+      justify-content: center;
+    }
+
+    .cover-title {
+      font-family: 'Anton', sans-serif;
+      font-size: 2.5rem;
+      color: var(--amber-bright);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .cover-sub {
+      font-family: 'Kaushan Script', cursive;
+      color: var(--cream);
+      font-size: 1.4rem;
+      margin-top: 10px;
+    }
+
+    .page-title {
+      font-family: 'Anton', sans-serif;
+      font-size: 1.3rem;
+      color: var(--rust);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      border-bottom: 2px solid var(--line-light);
+      width: 100%;
+      text-align: center;
+      padding-bottom: 6px;
+    }
+
+    .page-image {
+      width: 100%;
+      height: auto;
+      max-height: 480px;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .page-number {
+      position: absolute;
+      bottom: 10px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.75rem;
+      color: #8a7c66;
+    }
+
+    .hint {
+      margin-top: 30px;
+      color: var(--amber-bright);
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 480px) {
+      .menu-book { width: 320px; height: 480px; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="back-btn">&#8592; Back to Home</a>
+
+  <div class="menu-book" id="menuBook">
+    
+    <div class="page" style="z-index: 8;" onclick="flipPage(this)">
+      <div class="front cover-front">
+        <h1 class="cover-title">POLLY JEN</h1>
+        <p class="cover-sub">Food Menu</p>
+        <p style="margin-top: 80px; font-family: 'Oswald', sans-serif; font-size: 0.75rem; color: var(--amber-bright); letter-spacing: 0.1em;">CLICK TO OPEN &#9654;</p>
+      </div>
+      <div class="back">
+        <div class="page-title">Breakfast</div>
+        <img class="page-image" src="2.png" alt="Breakfast Menu">
+        <span class="page-number">1</span>
+      </div>
+    </div>
+
+    <div class="page" style="z-index: 7;" onclick="flipPage(this)">
+      <div class="front">
+        <div class="page-title">Appertizers</div>
+        <img class="page-image" src="3.png" alt="Appertizers Menu">
+        <span class="page-number">2</span>
+      </div>
+      <div class="back">
+        <div class="page-title">BBQ Menu</div>
+        <img class="page-image" src="4.png" alt="BBQ Menu 1">
+        <span class="page-number">3</span>
+      </div>
+    </div>
+
+    <div class="page" style="z-index: 6;" onclick="flipPage(this)">
+      <div class="front">
+        <div class="page-title">Burgers & Sandwiches</div>
+        <img class="page-image" src="5.png" alt="BBQ Menu 2">
+        <span class="page-number">4</span>
+      </div>
+      <div class="back">
+        <div class="page-title">Steak Set</div>
+        <img class="page-image" src="6.png" alt="Steak Set">
+        <span class="page-number">5</span>
+      </div>
+    </div>
+
+    <div class="page" style="z-index: 5;" onclick="flipPage(this)">
+      <div class="front">
+        <div class="page-title">Spaghetti</div>
+        <img class="page-image" src="7.png" alt="Spaghetti Menu">
+        <span class="page-number">6</span>
+      </div>
+      <div class="back">
+        <div class="page-title">Salad</div>
+        <img class="page-image" src="8.png" alt="Salad Menu">
+        <span class="page-number">7</span>
+      </div>
+    </div>
+
+    <div class="page" style="z-index: 4;" onclick="flipPage(this)">
+      <div class="front">
+        <div class="page-title">Thai Food</div>
+        <img class="page-image" src="9.png" alt="Thai Food Menu">
+        <span class="page-number">8</span>
+      </div>
+      <div class="back">
+        <div class="page-title">Stir Fried</div>
+        <img class="page-image" src="10.png" alt="Stir Fried Menu">
+        <span class="page-number">9</span>
+      </div>
+    </div>
+
+    <div class="page" style="z-index: 3;" onclick="flipPage(this)">
+      <div class="front">
+        <div class="page-title">Fish Menu</div>
+        <img class="page-image" src="11.png" alt="Fish Menu">
+        <span class="page-number">10</span>
+      </div>
+      <div class="back cover-back">
+        <h2 style="font-family: 'Anton', sans-serif; font-size: 1.6rem; color: var(--amber-bright);">SEE YOU AT THE BAR</h2>
+        <p style="margin-top: 10px; font-size: 0.9rem;">Rawai Beach, Phuket</p>
+        <p style="margin-top: 5px; font-size: 0.8rem; color: var(--amber);">Open Daily: 11:00 AM – Midnight</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hint">Click pages to flip back & forth</div>
+
+  <script>
+    function flipPage(page) {
+      page.classList.toggle('flipped');
+      setTimeout(() => {
+        let pages = document.querySelectorAll('.page');
+        pages.forEach((p, index) => {
+          if (p.classList.contains('flipped')) {
+            p.style.zIndex = index + 1;
+          } else {
+            p.style.zIndex = pages.length - index;
+          }
+        });
+      }, 300);
+    }
+  </script>
+
+</body>
+</html>

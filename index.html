@@ -205,24 +205,18 @@
   /* ---------- VISIT ---------- */
   .visit{ background:var(--cream); }
   .visit .grid{ display:grid; grid-template-columns:1fr 1fr; gap:64px; }
+  .map-container iframe{
+    width:100%;
+    height:100%;
+    min-height:350px;
+    border:2px solid var(--line-light);
+  }
   .hours-table{ width:100%; border-collapse:collapse; }
   .hours-table td{ padding:12px 0; border-bottom:1px solid var(--line-light); font-size:0.98rem; }
   .hours-table td:last-child{ text-align:right; color:#5c5346; }
   .visit-block{ margin-bottom:32px; }
   .visit-block h3{ font-size:1.05rem; margin-bottom:12px; color:var(--rust); }
   .visit-block p{ color:#4a4136; margin:0 0 4px 0; }
-  .map{
-    aspect-ratio:1/1;
-    background:
-      linear-gradient(135deg, #e2d2ab 25%, transparent 25%) -20px 0,
-      linear-gradient(225deg, #e2d2ab 25%, transparent 25%) -20px 0,
-      linear-gradient(315deg, #e2d2ab 25%, transparent 25%),
-      linear-gradient(45deg, #e2d2ab 25%, transparent 25%);
-    background-size:40px 40px; background-color:var(--cream-dim);
-    position:relative; border:2px solid var(--line-light);
-  }
-  .map::after{ content:"◆"; position:absolute; top:50%; left:52%; transform:translate(-50%,-50%); color:var(--rust); font-size:1.6rem; }
-  .map-label{ position:absolute; bottom:16px; left:16px; font-family:'Oswald', sans-serif; font-size:0.78rem; letter-spacing:0.04em; color:#6b6154; }
 
   /* ---------- FOOTER ---------- */
   footer{ background:var(--ink); border-top:2px solid var(--amber); padding:32px 0; }
@@ -264,7 +258,7 @@
       <a href="#story">Story</a>
       <a href="#gallery">Gallery</a>
       <a href="#beers">On Tap</a>
-      <a href="#food">Food</a>
+      <a href="menu.html">Food Menu</a>
       <a href="#reserve">Reserve</a>
       <a href="#visit">Visit</a>
     </nav>
@@ -274,7 +268,7 @@
 <section class="hero" id="top">
   <div class="wrap hero-inner">
     <div>
-      <div class="hero-kicker label">Craft brewery &amp; taproom · Rawai, Phuket</div>
+      <div class="hero-kicker label">Craft brewery & taproom · Rawai, Phuket</div>
       <h1>Brewed on<br>the beach road<span class="script-line">— pull up a stool.</span></h1>
       <p class="hero-sub">House-brewed ales, cold on tap, poured in a taproom two minutes from Rawai Beach. No frills — just good beer, loud tables, and food that goes with both.</p>
       <div class="btn-row">
@@ -312,7 +306,7 @@
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Behind the bar</div>
-      <h2>The taproom &amp; the brewhouse</h2>
+      <h2>The taproom & the brewhouse</h2>
     </div>
     <div class="gallery-grid">
       <div class="gallery-item">
@@ -379,11 +373,13 @@
     <div class="food-grid">
       <div class="food-card">
         <div class="label">Snacks</div>
-        <h3>Beer-battered fish bites</h3>
-        <p>Fresh catch, crispy batter, house tartare.</p>
+        <img src="51459433_2429568383784186_1041373069261668352_n.jpg" alt="Snacks">
+        <h3>If there's beer, there have to be snacks.</h3>
+        <p>Plus, you can enjoy it with beer to your heart's content.</p>
       </div>
       <div class="food-card">
-        <div class="label">Snacks</div>
+        <div class="label">Pad Thai</div>
+        <img src="6172a01f7aadd.jpg" alt="Pad Thai">
         <h3>Smoked pork skewers</h3>
         <p>Charcoal-grilled, sticky glaze, chili dip.</p>
       </div>
@@ -392,6 +388,9 @@
         <h3>Stout-braised beef roti</h3>
         <p>Slow-braised in Jen's Stout, flaky roti on the side.</p>
       </div>
+    </div>
+    <div style="margin-top: 36px; text-align: center;">
+      <a href="menu.html" class="btn btn-ghost-light">Open Interactive 3D Menu Book</a>
     </div>
   </div>
 </section>
@@ -427,8 +426,10 @@
 
 <section class="visit" id="visit">
   <div class="wrap grid">
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.1674452152142!2d98.3214203!3d7.772062099999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30502980293bb605%3A0xeaba27775d5b4bf1!2zUG9sbHkgSmVuIFJhd2FpIEJyZXdpbmcgQ3JhZnQgQmVlciBQaHVrZXQg4LiE4Lij4Liy4Lif4LmA4Lia4Li14Lii4Lij4LmMIOC4oOC4ueC5gOC4geC5h-C4lQ!5e0!3m2!1sth!2sth!4v1788524827978!5m2!1sth!2sth" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
     <div>
-      <div></div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.1674452152142!2d98.3214203!3d7.772062099999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30502980293bb605%3A0xeaba27775d5b4bf1!2zUG9sbHkgSmVuIFJhd2FpIEJyZXdpbmcgQ3JhZnQgQmVlciBQaHVrZXQg4LiE4Lij4Liy4Lif4LmA4Lia4Li14Lii4Lij4LmMIOC4oOC4ueC5gOC4geC5h-C4lQ!5e0!3m2!1sth!2sth!4v1788524827978!5m2!1sth!2sth" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
       <div class="visit-block">
         <div class="eyebrow">Visit</div>
         <h2 style="margin-bottom:20px;">Find us in Rawai</h2>
@@ -460,6 +461,7 @@
     </a>
     <div class="foot-links">
       <a href="#beers">On Tap</a>
+      <a href="menu.html">Food Menu</a>
       <a href="#reserve">Reserve</a>
       <a href="#">Instagram</a>
     </div>
