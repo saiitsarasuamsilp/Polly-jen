@@ -1,12 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Polly Jen — Rawai Brewing Phuket</title>
+
+<!-- 1. SEO Primary Meta Tags -->
+<title>Polly Jen Rawai Brewing Craft Beer Phuket | ร้านคราฟต์เบียร์ ราไวย์ ภูเก็ต</title>
+<meta name="title" content="Polly Jen Rawai Brewing Craft Beer Phuket | ร้านคราฟต์เบียร์ ราไวย์ ภูเก็ต">
+<meta name="description" content="Polly Jen Rawai Brewing Craft Beer Phuket - คราฟต์เบียร์บรูสดใหม่ริมหาดราไวย์ ภูเก็ต Craft brewery & taproom in Rawai, Phuket. Cold house-brewed ales on tap, great bar food, and beach vibes.">
+<meta name="keywords" content="polly jen, Polly Jen Rawai Brewing Craft Beer Phuket, craft beer phuket, rawai brewing, craft brewery rawai, phuket craft beer, taproom rawai, คราฟต์เบียร์ ภูเก็ต, ร้านเบียร์ ราไวย์, บรูวเวอรี ภูเก็ต, ร้านนั่งชิล ราไวย์, คราฟเบียร์ ภูเก็ต">
+<meta name="robots" content="index, follow">
+
+<!-- 2. Open Graph / Facebook (ช่วยให้แชร์ลงโซเชียลแล้วขึ้นภาพและคำอธิบายสวยงาม) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pollyjen.co/">
+<meta property="og:title" content="Polly Jen Rawai Brewing Craft Beer Phuket | ร้านคราฟต์เบียร์ ราไวย์ ภูเก็ต">
+<meta property="og:description" content="House-brewed craft beer in Rawai, Phuket. คราฟต์เบียร์ต้มสดใหม่ ย่านราไวย์ ภูเก็ต มีเบียร์สด 6 หัวแท็ปและอาหารทานแกล้ม">
+<meta property="og:image" content="S__27787268_0.jpg">
+
+<!-- 3. Structured Data (JSON-LD) ช่วยให้ Google อ่านข้อมูลร้านค้าได้แม่นยำขึ้น -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Brewery",
+  "name": "Polly Jen Rawai Brewing Craft Beer Phuket",
+  "alternateName": ["Polly Jen", "Polly Jen Craft Beer Rawai", "ร้านคราฟต์เบียร์ พอลลี่ เจน ราไวย์ ภูเก็ต"],
+  "image": "S__27787268_0.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Rawai",
+    "addressRegion": "Phuket",
+    "addressCountry": "TH"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 7.772062,
+    "longitude": 98.321420
+  },
+  "url": "https://pollyjen.co",
+  "telephone": "+665550192244",
+  "servesCuisine": ["Craft Beer", "Bar Food", "Thai Snacks"],
+  "priceRange": "$$"
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Anton&family=Oswald:wght@400;500;600&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Anton&family=Oswald:wght@400;500;600&family=Work+Sans:wght@300;400;500;600&family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink: #17120d;
@@ -32,20 +72,20 @@
     margin:0;
     background:var(--cream);
     color:var(--ink);
-    font-family:'Work Sans', sans-serif;
+    font-family:'Work Sans', 'Kanit', sans-serif;
     line-height:1.6;
   }
 
   .script{ font-family:'Kaushan Script', cursive; font-weight:400; }
   h1,h2,h3{
-    font-family:'Anton', sans-serif;
+    font-family:'Anton', 'Kanit', sans-serif;
     font-weight:400;
     text-transform:uppercase;
     letter-spacing:0.01em;
     margin:0;
   }
   .label{
-    font-family:'Oswald', sans-serif;
+    font-family:'Oswald', 'Kanit', sans-serif;
     font-weight:500;
     text-transform:uppercase;
     letter-spacing:0.12em;
@@ -70,7 +110,7 @@
   .brand-text strong{ display:block; font-family:'Kaushan Script', cursive; font-size:1.3rem; color:var(--amber-bright); letter-spacing:0; text-transform:none; }
   nav.links{ display:flex; gap:32px; }
   nav.links a{
-    color:var(--cream); font-family:'Oswald', sans-serif; font-size:0.85rem;
+    color:var(--cream); font-family:'Oswald', 'Kanit', sans-serif; font-size:0.85rem;
     letter-spacing:0.08em; text-transform:uppercase;
     position:relative; padding-bottom:4px; opacity:0.9;
   }
@@ -118,7 +158,7 @@
   @keyframes badge-in{ from{ opacity:0; transform:scale(0.92) rotate(-3deg);} to{ opacity:1; transform:scale(1) rotate(0);} }
 
   /* ---------- BUTTONS ---------- */
-  .btn{ display:inline-block; padding:14px 30px; font-family:'Oswald', sans-serif; font-size:0.85rem; letter-spacing:0.08em; text-transform:uppercase; border:2px solid currentColor; transition:background 0.25s ease, color 0.25s ease, border-color 0.25s ease; }
+  .btn{ display:inline-block; padding:14px 30px; font-family:'Oswald', 'Kanit', sans-serif; font-size:0.85rem; letter-spacing:0.08em; text-transform:uppercase; border:2px solid currentColor; transition:background 0.25s ease, color 0.25s ease, border-color 0.25s ease; }
   .btn-primary{ background:var(--amber); color:var(--ink); border-color:var(--amber); }
   .btn-primary:hover{ background:var(--amber-bright); border-color:var(--amber-bright); }
   .btn-ghost-dark{ color:var(--cream); border-color:var(--line-dark); }
@@ -128,7 +168,7 @@
 
   /* ---------- SECTION SCAFFOLD ---------- */
   section{ padding:110px 0; }
-  .eyebrow{ color:var(--rust); font-family:'Oswald', sans-serif; letter-spacing:0.12em; text-transform:uppercase; font-size:0.82rem; margin-bottom:14px; }
+  .eyebrow{ color:var(--rust); font-family:'Oswald', 'Kanit', sans-serif; letter-spacing:0.12em; text-transform:uppercase; font-size:0.82rem; margin-bottom:14px; }
   .section-head{ max-width:640px; margin-bottom:56px; }
   .section-head h2{ font-size:clamp(2rem, 4.2vw, 3rem); }
 
@@ -155,7 +195,7 @@
   .story-copy p + p{ margin-top:16px; }
   .story-facts{ margin-top:36px; display:grid; grid-template-columns:repeat(3,1fr); gap:20px; border-top:2px solid var(--line-light); padding-top:26px; }
   .story-facts strong{ display:block; font-family:'Anton', sans-serif; font-size:1.7rem; color:var(--rust); }
-  .story-facts span{ font-family:'Oswald', sans-serif; font-size:0.76rem; letter-spacing:0.06em; text-transform:uppercase; color:#6b6154; }
+  .story-facts span{ font-family:'Oswald', 'Kanit', sans-serif; font-size:0.76rem; letter-spacing:0.06em; text-transform:uppercase; color:#6b6154; }
 
   /* ---------- BEERS ---------- */
   .beers{ background:var(--ink); color:var(--cream); }
@@ -185,10 +225,10 @@
   .reserve-note{ margin-top:28px; padding:18px 20px; background:var(--ink-soft); border-left:3px solid var(--amber); font-size:0.9rem; color:#c9bda5; max-width:40ch; }
   form{ display:flex; flex-direction:column; gap:18px; }
   .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
-  label{ font-family:'Oswald', sans-serif; font-size:0.75rem; letter-spacing:0.06em; text-transform:uppercase; color:#a89a80; display:block; margin-bottom:8px; }
+  label{ font-family:'Oswald', 'Kanit', sans-serif; font-size:0.75rem; letter-spacing:0.06em; text-transform:uppercase; color:#a89a80; display:block; margin-bottom:8px; }
   input, select, textarea{
     width:100%; background:transparent; border:none; border-bottom:1px solid var(--line-dark);
-    padding:10px 2px; font-family:'Work Sans', sans-serif; font-size:0.98rem; color:var(--cream);
+    padding:10px 2px; font-family:'Work Sans', 'Kanit', sans-serif; font-size:0.98rem; color:var(--cream);
     transition:border-color 0.2s ease;
   }
   input:focus, select:focus, textarea:focus{ outline:none; border-bottom-color:var(--amber-bright); }
@@ -196,7 +236,7 @@
   textarea{ resize:vertical; min-height:70px; }
   .form-submit{
     margin-top:6px; background:var(--amber); color:var(--ink); border:2px solid var(--amber);
-    padding:14px 28px; font-family:'Oswald', sans-serif; letter-spacing:0.08em; text-transform:uppercase;
+    padding:14px 28px; font-family:'Oswald', 'Kanit', sans-serif; letter-spacing:0.08em; text-transform:uppercase;
     font-size:0.85rem; cursor:pointer; align-self:flex-start; transition:background 0.25s ease;
   }
   .form-submit:hover{ background:var(--amber-bright); border-color:var(--amber-bright); }
@@ -225,7 +265,7 @@
   .foot-brand img{ height:34px; }
   .foot-brand span{ font-family:'Kaushan Script', cursive; color:var(--amber-bright); font-size:1.1rem; }
   .foot-links{ display:flex; gap:24px; }
-  .foot-links a{ color:#c9bda5; font-family:'Oswald', sans-serif; font-size:0.78rem; letter-spacing:0.06em; text-transform:uppercase; }
+  .foot-links a{ color:#c9bda5; font-family:'Oswald', 'Kanit', sans-serif; font-size:0.78rem; letter-spacing:0.06em; text-transform:uppercase; }
   .foot-links a:hover{ color:var(--amber-bright); }
   .foot-fine{ color:#8a7c66; font-size:0.78rem; }
 
@@ -251,16 +291,16 @@
 <header id="siteHeader">
   <div class="wrap">
     <a href="#top" class="brand">
-      <img src="S__34889742.jpg" alt="Polly Jen — Rawai Brewing Phuket logo">
+      <img src="S__34889742.jpg" alt="Polly Jen Rawai Brewing Craft Beer Phuket Logo">
       <span class="brand-text"><strong>Polly Jen</strong>Rawai Brewing Phuket</span>
     </a>
     <nav class="links">
-      <a href="#story">Story</a>
+      <a href="#story">Story / เรื่องราว</a>
       <a href="#gallery">Gallery</a>
-      <a href="#beers">On Tap</a>
-      <a href="menu.html">Food Menu</a>
-      <a href="#reserve">Reserve</a>
-      <a href="#visit">Visit</a>
+      <a href="#beers">On Tap / เมนูเบียร์</a>
+      <a href="menu.html">Food Menu / อาหาร</a>
+      <a href="#reserve">Reserve / จองโต๊ะ</a>
+      <a href="#visit">Visit / การเดินทาง</a>
     </nav>
   </div>
 </header>
@@ -268,16 +308,16 @@
 <section class="hero" id="top">
   <div class="wrap hero-inner">
     <div>
-      <div class="hero-kicker label">Craft brewery & taproom · Rawai, Phuket</div>
-      <h1>Brewed on<br>the beach road<span class="script-line">— pull up a stool.</span></h1>
-      <p class="hero-sub">House-brewed ales, cold on tap, poured in a taproom two minutes from Rawai Beach. No frills — just good beer, loud tables, and food that goes with both.</p>
+      <div class="hero-kicker label">Craft Brewery & Taproom · Rawai, Phuket | ร้านคราฟต์เบียร์ ราไวย์ ภูเก็ต</div>
+      <h1>Brewed on<br>the beach road<span class="script-line">— Polly Jen Craft Beer Phuket</span></h1>
+      <p class="hero-sub">House-brewed ales, cold on tap, poured in a taproom two minutes from Rawai Beach. คราฟต์เบียร์ต้มสดใหม่ในราไวย์ ภูเก็ต บรรยากาศเป็นกันเอง พร้อมอาหารแกล้มเบียร์รสเลิศ</p>
       <div class="btn-row">
-        <a href="#beers" class="btn btn-primary">See what's on tap</a>
-        <a href="#reserve" class="btn btn-ghost-dark">Book a table</a>
+        <a href="#beers" class="btn btn-primary">See what's on tap / ดูรายการเบียร์สด</a>
+        <a href="#reserve" class="btn btn-ghost-dark">Book a table / จองโต๊ะ</a>
       </div>
     </div>
     <div class="hero-badge">
-      <img src="S__27787268_0.jpg" alt="Polly Jen Rawai Brewing Phuket badge logo">
+      <img src="S__27787268_0.jpg" alt="Polly Jen Rawai Brewing Craft Beer Phuket badge logo">
     </div>
   </div>
 </section>
@@ -285,18 +325,18 @@
 <section class="story" id="story">
   <div class="wrap grid">
     <div class="story-art">
-      <img src="S__27787270_0.jpg" alt="Stainless steel brewing tanks at Polly Jen brewhouse">
-      <div class="mark">Small-batch, brewed right here in Rawai.</div>
+      <img src="S__27787270_0.jpg" alt="Polly Jen Craft Beer Fermentation Tanks Rawai Phuket">
+      <div class="mark">Small-batch craft beer brewed right here in Rawai, Phuket.</div>
     </div>
     <div class="story-copy">
-      <div class="eyebrow">Our story</div>
-      <h2>Beer for the beach life</h2>
-      <p>Polly Jen started as a home-brew rig on a Rawai balcony and a stubborn belief that Phuket deserved a proper local ale — not another imported lager. We kept brewing until the batches got bigger than the balcony.</p>
-      <p>Now we run a small taproom just off the beach road, brewing in-house and pouring it straight from the tank. Same recipes, same crew, just more stools.</p>
+      <div class="eyebrow">Our Story / คราฟต์เบียร์ราไวย์</div>
+      <h2>Beer for the beach life in Rawai, Phuket</h2>
+      <p>Polly Jen started as a home-brew rig on a Rawai balcony and a stubborn belief that Phuket deserved a proper local craft beer. จากจุดเริ่มต้นการต้มเบียร์โฮมบรูว์ในราไวย์ สู่โรงต้มคราฟต์เบียร์ท้องถิ่นประจำหาดราไวย์ ภูเก็ต</p>
+      <p>Now we run a small taproom just off the beach road in Rawai, brewing in-house and pouring it straight from the tank. เสิร์ฟเบียร์สดๆ จากถังต้มใกล้ชายหาดราไวย์ บรรยากาศสุดชิลสำหรับสายดื่มคราฟต์เบียร์ในภูเก็ต</p>
       <div class="story-facts">
-        <div><strong>6</strong><span>Beers on tap</span></div>
-        <div><strong>100%</strong><span>Brewed in-house</span></div>
-        <div><strong>2 min</strong><span>Walk to Rawai Beach</span></div>
+        <div><strong>6</strong><span>Beers on tap / แท็ปเบียร์สด</span></div>
+        <div><strong>100%</strong><span>Brewed in Rawai / ต้มสดที่ราไวย์</span></div>
+        <div><strong>2 min</strong><span>Walk to Rawai Beach / ใกล้หาดราไวย์</span></div>
       </div>
     </div>
   </div>
@@ -305,21 +345,21 @@
 <section class="gallery" id="gallery">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Behind the bar</div>
-      <h2>The taproom & the brewhouse</h2>
+      <div class="eyebrow">Behind the bar / บรรยากาศร้าน</div>
+      <h2>Polly Jen Taproom & Brewhouse Rawai</h2>
     </div>
     <div class="gallery-grid">
       <div class="gallery-item">
-        <img src="S__27787269_0.jpg" alt="Row of beer taps at the Polly Jen taproom bar">
-        <div class="gallery-cap">Ten taps, always cold</div>
+        <img src="S__27787269_0.jpg" alt="Polly Jen Rawai Brewing Craft Beer Phuket Taps">
+        <div class="gallery-cap">Craft Beer Taps in Rawai, Phuket</div>
       </div>
       <div class="gallery-item">
-        <img src="S__27787271_0.jpg" alt="Brewers working on the fermentation tanks">
-        <div class="gallery-cap">Hands-on, every batch</div>
+        <img src="S__27787271_0.jpg" alt="Brewing Craft Beer at Polly Jen Rawai Phuket">
+        <div class="gallery-cap">Hands-on craft brewing in Phuket</div>
       </div>
       <div class="gallery-item">
-        <img src="Gemini_Generated_Image_dadvp7dadvp7dadv.jfif" alt="Brewer checking a brew kettle at the open-air brewhouse">
-        <div class="gallery-cap">Brewed on site, daily</div>
+        <img src="Gemini_Generated_Image_dadvp7dadvp7dadv.jfif" alt="Brewmaster at Polly Jen Rawai Brewery Phuket">
+        <div class="gallery-cap">Brewed on site in Rawai daily</div>
       </div>
     </div>
   </div>
@@ -328,12 +368,12 @@
 <section class="beers" id="beers">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">On tap this week</div>
-      <h2>Six taps, always rotating</h2>
+      <div class="eyebrow">On tap this week / รายการคราฟต์เบียร์สด</div>
+      <h2>Six Taps at Polly Jen Rawai Brewery</h2>
     </div>
     <div class="tap-list">
       <div class="tap-item">
-        <div><div class="tap-name">Rawai Pale Ale</div><div class="tap-desc">Citrus-forward, easy drinking, our flagship pour.</div></div>
+        <div><div class="tap-name">Rawai Pale Ale</div><div class="tap-desc">Citrus-forward, easy drinking, our flagship Rawai pour.</div></div>
         <div class="tap-stats">5.2% · 32 IBU</div>
       </div>
       <div class="tap-item">
@@ -341,25 +381,25 @@
         <div class="tap-stats">4.8% · 14 IBU</div>
       </div>
       <div class="tap-item">
-        <div><div class="tap-name">Beach Road IPA</div><div class="tap-desc">Dry-hopped, resinous, built for hot afternoons.</div></div>
+        <div><div class="tap-name">Beach Road IPA</div><div class="tap-desc">Dry-hopped, resinous, built for hot afternoons in Phuket.</div></div>
         <div class="tap-stats">6.4% · 58 IBU</div>
       </div>
       <div class="tap-item">
-        <div><div class="tap-name">Rawai Dark Lager</div><div class="tap-desc">Roasted malt, smooth finish, no bitterness.</div></div>
+        <div><div class="tap-name">Rawai Dark Lager</div><div class="tap-desc">Roasted malt, smooth finish, local favorite in Rawai.</div></div>
         <div class="tap-stats">5.0% · 20 IBU</div>
       </div>
       <div class="tap-item">
-        <div><div class="tap-name">Sour Passionfruit</div><div class="tap-desc">Tart and tropical, made with local fruit.</div></div>
+        <div><div class="tap-name">Sour Passionfruit</div><div class="tap-desc">Tart and tropical craft beer made with local Phuket fruit.</div></div>
         <div class="tap-stats">4.5% · 8 IBU</div>
       </div>
       <div class="tap-item">
-        <div><div class="tap-name">Jen's Stout</div><div class="tap-desc">Coffee and cacao notes, brewed with beans from up the road.</div></div>
+        <div><div class="tap-name">Jen's Stout</div><div class="tap-desc">Coffee and cacao notes, brewed with coffee beans from Phuket.</div></div>
         <div class="tap-stats">6.0% · 34 IBU</div>
       </div>
     </div>
     <div class="beers-cta">
-      <p>Taking bottles home? We fill growlers and crowlers to go, every day we're open.</p>
-      <a href="#" class="btn btn-primary">Order growlers to go</a>
+      <p>Taking craft beer home? We fill growlers and crowlers to go at Rawai, Phuket.</p>
+      <a href="#reserve" class="btn btn-primary">Order growlers to go / สั่งกลับบ้าน</a>
     </div>
   </div>
 </section>
@@ -367,30 +407,30 @@
 <section class="food" id="food">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">To eat</div>
-      <h2>Bar food, done properly</h2>
+      <div class="eyebrow">To Eat / กับแกล้มและอาหาร</div>
+      <h2>Phuket Bar Food & Craft Beer Pairings</h2>
     </div>
     <div class="food-grid">
       <div class="food-card">
-        <div class="label">Snacks</div>
-        <img src="51459433_2429568383784186_1041373069261668352_n.jpg" alt="Snacks">
-        <h3>If there's beer, there have to be snacks.</h3>
-        <p>Plus, you can enjoy it with beer to your heart's content.</p>
+        <div class="label">Snacks / ของทานเล่น</div>
+        <img src="51459433_2429568383784186_1041373069261668352_n.jpg" alt="กับแกล้มคราฟต์เบียร์ Polly Jen Rawai Phuket">
+        <h3>กับแกล้มทานคู่คราฟต์เบียร์</h3>
+        <p>If there's craft beer in Rawai, there have to be snacks. เพลิดเพลินกับกับแกล้มอร่อยๆ คู่กับเบียร์สด</p>
       </div>
       <div class="food-card">
-        <div class="label">Pad Thai</div>
-        <img src="6172a01f7aadd.jpg" alt="Pad Thai">
-        <h3>Smoked pork skewers</h3>
-        <p>Charcoal-grilled, sticky glaze, chili dip.</p>
+        <div class="label">Pad Thai & Skewers / ผัดไทยและหมูปิ้ง</div>
+        <img src="6172a01f7aadd.jpg" alt="หมูปิ้งและผัดไทย Polly Jen Rawai Phuket">
+        <h3>Smoked pork skewers / หมูปิ้งถ่าน</h3>
+        <p>Charcoal-grilled with sticky glaze and chili dip. ทานคู่เบียร์เย็นๆ ในราไวย์</p>
       </div>
       <div class="food-card">
-        <div class="label">Mains</div>
+        <div class="label">Mains / อาหารจานหลัก</div>
         <h3>Stout-braised beef roti</h3>
-        <p>Slow-braised in Jen's Stout, flaky roti on the side.</p>
+        <p>Slow-braised in Jen's Stout with flaky roti on the side.</p>
       </div>
     </div>
     <div style="margin-top: 36px; text-align: center;">
-      <a href="menu.html" class="btn btn-ghost-light">Open Interactive 3D Menu Book</a>
+      <a href="menu.html" class="btn btn-ghost-light">Open Interactive 3D Menu Book / ดูเมนูอาหารทั้งหมด</a>
     </div>
   </div>
 </section>
@@ -398,15 +438,15 @@
 <section class="reserve" id="reserve">
   <div class="wrap grid">
     <div class="reserve-copy">
-      <div class="eyebrow" style="color:var(--amber-bright)">Reservations</div>
-      <h2>Grab a table</h2>
-      <p>Tables go fast on weekend nights, especially when there's a match on. Booking ahead holds your spot until 20 minutes past.</p>
-      <div class="reserve-note">Walk-ins always welcome at the bar — reservations are for table seating only.</div>
+      <div class="eyebrow" style="color:var(--amber-bright)">Reservations / จองโต๊ะ</div>
+      <h2>Grab a table at Polly Jen Rawai</h2>
+      <p>จองโต๊ะล่วงหน้าสำหรับค่ำคืนคราฟต์เบียร์ที่ราไวย์ ภูเก็ต Tables go fast on weekend nights in Rawai, Phuket.</p>
+      <div class="reserve-note">Walk-ins always welcome at our Rawai taproom bar — reservations are for table seating.</div>
     </div>
     <form id="reserveForm">
       <div class="form-row">
-        <div><label for="name">Name</label><input type="text" id="name" required></div>
-        <div><label for="party">Party size</label>
+        <div><label for="name">Name / ชื่อผู้จอง</label><input type="text" id="name" required></div>
+        <div><label for="party">Party size / จำนวนคน</label>
           <select id="party">
             <option>1</option><option>2</option><option>3</option><option>4</option>
             <option>5</option><option>6</option><option>7</option><option>8+</option>
@@ -414,11 +454,11 @@
         </div>
       </div>
       <div class="form-row">
-        <div><label for="date">Date</label><input type="date" id="date" required></div>
-        <div><label for="time">Time</label><input type="time" id="time" required></div>
+        <div><label for="date">Date / วันที่</label><input type="date" id="date" required></div>
+        <div><label for="time">Time / เวลา</label><input type="time" id="time" required></div>
       </div>
-      <div><label for="notes">Notes (optional)</label><textarea id="notes" placeholder="Big group, birthday, watching the game…"></textarea></div>
-      <button type="submit" class="form-submit">Request a table</button>
+      <div><label for="notes">Notes / ข้อความเพิ่มเติม</label><textarea id="notes" placeholder="Big group, birthday, watching the game…"></textarea></div>
+      <button type="submit" class="form-submit">Request a table / ยืนยันการจอง</button>
       <div class="form-note">We'll confirm by message within a few hours.</div>
     </form>
   </div>
@@ -427,16 +467,16 @@
 <section class="visit" id="visit">
   <div class="wrap grid">
     <div class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.1674452152142!2d98.3214203!3d7.772062099999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30502980293bb605%3A0xeaba27775d5b4bf1!2zUG9sbHkgSmVuIFJhd2FpIEJyZXdpbmcgQ3JhZnQgQmVlciBQaHVrZXQg4LiE4Lij4Liy4Lif4LmA4Lia4Li14Lii4Lij4LmMIOC4oOC4ueC5gOC4geC5h-C4lQ!5e0!3m2!1sth!2sth!4v1788524827978!5m2!1sth!2sth" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.1674452152142!2d98.3214203!3d7.772062099999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30502980293bb605%3A0xeaba27775d5b4bf1!2zUG9sbHkgSmVuIFJhd2FiIEJyZXdpbmcgQ3JhZnQgQmVlciBQaHVrZXQg4LiE4Lij4Liy4Lif4LmA4Lia4Li14Lii4Lij4LmMIOC4oOC4ueC5gOC4geC5h-C4lQ!5e0!3m2!1sth!2sth!4v1788524827978!5m2!1sth!2sth" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Polly Jen Rawai Brewing Craft Beer Phuket Location Map"></iframe>
     </div>
     <div>
       <div class="visit-block">
-        <div class="eyebrow">Visit</div>
-        <h2 style="margin-bottom:20px;">Find us in Rawai</h2>
-        <p style="color:#4a4136; max-width:40ch;">A short walk from Rawai Beach, with outdoor tables and the tanks in view.</p>
+        <div class="eyebrow">Visit Us / ที่ตั้งร้าน</div>
+        <h2 style="margin-bottom:20px;">Find Polly Jen in Rawai, Phuket</h2>
+        <p style="color:#4a4136; max-width:40ch;">ร้านคราฟต์เบียร์ตั้งอยู่ใกล้หาดราไวย์ ภูเก็ต A short walk from Rawai Beach, with outdoor tables and brewery tanks in view.</p>
       </div>
       <div class="visit-block">
-        <h3>Hours</h3>
+        <h3>Hours / เวลาเปิด-ปิด</h3>
         <table class="hours-table">
           <tr><td>Monday – Thursday</td><td>11:00am – Midnight</td></tr>
           <tr><td>Friday – Saturday</td><td>11:00am – Midnight</td></tr>
@@ -444,8 +484,9 @@
         </table>
       </div>
       <div class="visit-block">
-        <h3>Contact</h3>
-        <p>Rawai, Phuket, Thailand</p>
+        <h3>Contact / ติดต่อเรา</h3>
+        <p><strong>Polly Jen Rawai Brewing Craft Beer Phuket</strong></p>
+        <p>Rawai, Phuket, Thailand 83130 (ราไวย์ ภูเก็ต)</p>
         <p>(555) 019-2244</p>
         <p>hello@pollyjen.co</p>
       </div>
@@ -456,8 +497,8 @@
 <footer>
   <div class="wrap">
     <a href="#top" class="foot-brand">
-      <img src="S__34889742.jpg" alt="Polly Jen logo">
-      <span>Polly Jen</span>
+      <img src="S__34889742.jpg" alt="Polly Jen Rawai Brewing Craft Beer Phuket logo">
+      <span>Polly Jen Rawai Brewing Craft Beer Phuket</span>
     </a>
     <div class="foot-links">
       <a href="#beers">On Tap</a>
@@ -465,7 +506,7 @@
       <a href="#reserve">Reserve</a>
       <a href="#">Instagram</a>
     </div>
-    <div class="foot-fine">© 2026 Rawai Brewing Phuket</div>
+    <div class="foot-fine">© 2026 Polly Jen Rawai Brewing Craft Beer Phuket. All rights reserved.</div>
   </div>
 </footer>
 
@@ -478,7 +519,7 @@
     e.preventDefault();
     const btn = form.querySelector('.form-submit');
     const original = btn.textContent;
-    btn.textContent = 'Request sent';
+    btn.textContent = 'Request sent / ส่งข้อมูลเรียบร้อย';
     btn.disabled = true;
     setTimeout(() => { btn.textContent = original; btn.disabled = false; form.reset(); }, 2200);
   });
